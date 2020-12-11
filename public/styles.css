@@ -1,0 +1,129 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+body {
+    background-image: url('./img/snowman-1090261.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+
+}
+h1 {
+  display: inline-block;
+  color: white;
+  font-family: 'Righteous', serif;
+  font-size: 5em; 
+  text-shadow: .04em .04em 0 rgb(240, 51, 27);
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  }
+  h1:after {
+    content: attr(data-shadow);
+    position: absolute;
+    top: .06em; left: .06em;
+    z-index: -1;
+    text-shadow: none;
+    background-image:
+      linear-gradient(
+        45deg,
+        transparent 45%,
+        hsla(48,20%,90%,1) 45%,
+        hsla(48,20%,90%,1) 55%,
+        transparent 0
+        );
+    background-size: .05em .05em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+
+#calendar {
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px auto;
+}
+img {
+  width: 30%;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+  background-color: transparent;
+  perspective: 1000px;
+  margin: 5px;
+  border: 1px solid rgb(141, 127, 127);
+  flex: 20%;
+  height: 200px;
+  border-radius: 3px;
+}
+
+.double-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: black;
+  font-weight: 700;
+}
+.front:hover {
+    background: rgba(0,0,0,0.9);
+    color: snow;
+}
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flipper {
+  transform: rotateY(180deg)
+}
+
+.display {
+    visibility: visible;
+    opacity: 1;
+}
+@media screen and (max-width: 768px){
+  body {
+    background-repeat: repeat;
+    background-position: bottom;
+  }
+  .card {
+    flex: 48%;
+  }
+  h1 {
+    font-size: 3em;
+  }
+
+}
+@media screen and (max-width: 550px){
+    #calendar {
+    flex-direction: column;
+  }
+  .card {
+    flex: unset;
+  }
+    h1 {
+    font-size: 2em;
+  }
+}
